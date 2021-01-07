@@ -1,0 +1,12 @@
+<h1>Burgers</h1>
+
+<h2>Eat the burgers!</h2>
+
+<ul>
+  {{#each burgers}}
+    <li>
+        Burger Name: {{this.burger_name}}
+        Eaten? {{this.devoured}}
+    </li>
+  {{/each}}
+</ul>
