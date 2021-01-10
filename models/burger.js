@@ -14,10 +14,14 @@ const burger = {
         orm.insertOne("burgers", col, val, function(results) {
             cb(results);
         })
+    },
+    update: function(val, condition, cb) {
+        console.log(val);
+        orm.updateOne("burgers", val, condition, function(result) {
+            cb(result);
+        });
     }
     // ,
-    // to do - create
-    // to do - update
     // to do - delete
 };
 

@@ -11,10 +11,16 @@
       Burgers Available:
       <ul class="list-group">
         {{#each burgers}}
-          <li class="list-group-item">
-              Burger Name: {{this.burger_name}}
-              Eaten? {{this.devoured}}
-          </li>
+          {{#unless devoured}}
+            <li class="list-group-item">
+                {{this.id}}
+                Burger Name: {{this.burger_name}}
+                Eaten? {{this.devoured}}
+                <button class="change-devoured" data-id="{{this.id}}" data-devoured="{{this.devoured}}">
+                  Devour this burger!
+                </button>
+            </li>
+          {{/unless}}
         {{/each}}
       </ul>
     </div>
@@ -22,10 +28,13 @@
       Burgers Eaten:
       <ul class="list-group">
         {{#each burgers}}
-          <li class="list-group-item">
-              Burger Name: {{this.burger_name}}
-              Eaten? {{this.devoured}}
-          </li>
+          {{#if devoured}}
+            <li class="list-group-item">
+                {{this.id}}
+                Burger Name: {{this.burger_name}}
+                Eaten? {{this.devoured}}
+            </li>
+          {{/if}}
         {{/each}}
       </ul>
     </div>
@@ -41,6 +50,7 @@
     </div>
 
     <button type="submit">Add burger</button>
+    <p>Enter a burger you want to eat and click "Add Burger" button.</p>
   </form>
 </div>
 
@@ -65,5 +75,20 @@
         location.reload();
       }
     );
+  });
+
+  $(".change-devoured").on("click", function(event) {
+    let id = $(this).data("id");
+    let newDevoured = {
+      devoured: true
+    };
+
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: newDevoured
+    }).then(function() {
+      console.log("changed devoured to " + newDevoured);
+      location.reload();
+    });
   });
 </script>

@@ -34,6 +34,22 @@ router.post("/api/burgers", function(req, res) {
 })
 
 // to do - router.put("/api/burgers/:id")
+router.put("/api/burgers/:id", function(req, res) {
+    let condition = "id = " + req.params.id;
+    console.log("conditions: " + condition);
+    // console.log(req.data)
+    burger.update({
+        devoured: true
+    },
+    condition,
+    function(result) {
+        if (result.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
 // to do - router.delete("/api/burgers/:id")
 
 // Export routes for server.js to use.
