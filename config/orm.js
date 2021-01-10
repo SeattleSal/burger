@@ -12,31 +12,22 @@ const orm = {
             }
             cb(result);
         });
+    },
+    // insertOne()
+    insertOne: function(table, cols, vals, cb) {
+        const queryString = "INSERT INTO " + table + " (" + cols.toString() + ") ";
+        queryString += "VALUES (?, ?)"
+        console.log(queryString);
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        })
     }
+    // , updateOne: function (...)
 
 }
 
 // export the orm object for the model (burger.js)
 module.exports = orm;
-
-
-    // // insertOne()
-    // insertOne(data) {
-    //     return connection.query("INSERT INTO burgers SET ?",
-    //     {
-    //         burger_name: data.name
-    //     });
-    // },
-
-    // // updateOne()
-    // updateOne(data) {
-    //     return connection.query("UPDATE burgers SET ? WHERE ?",
-    //     [
-    //         { 
-    //             burger_name: data.name
-    //         },
-    //         {
-    //             id: data.id
-    //         }
-    //     ]);
-    // }

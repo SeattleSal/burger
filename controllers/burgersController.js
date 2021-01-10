@@ -19,7 +19,11 @@ router.get("/", function(req, res) {
         console.log(hbsObject);
         res.render("index", hbsObject);
     })
-})
+});
+
+// to do - router.post("/api/burgers")
+// to do - router.put("/api/burgers/:id")
+// to do - router.delete("/api/burgers/:id")
 
 // Export routes for server.js to use.
 module.exports = router;
