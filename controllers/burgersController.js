@@ -22,6 +22,17 @@ router.get("/", function(req, res) {
 });
 
 // to do - router.post("/api/burgers")
+router.post("/api/burgers", function(req, res) {
+    console.log(req.body)
+    burger.create(
+        "burger_name", 
+        req.body.name,
+        function(result){
+            res.json({ id: result.insertId});
+        }
+    );
+})
+
 // to do - router.put("/api/burgers/:id")
 // to do - router.delete("/api/burgers/:id")
 

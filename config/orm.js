@@ -5,7 +5,7 @@ const connection = require("../config/connection.js");
 const orm = {
     // selectAll()
     selectAll: function(tableInput, cb) {
-        const queryString = "SELECT * FROM " + tableInput + ";";
+        let queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function (err, result) {
             if (err) { 
                 throw err;
@@ -14,11 +14,11 @@ const orm = {
         });
     },
     // insertOne()
-    insertOne: function(table, cols, vals, cb) {
-        const queryString = "INSERT INTO " + table + " (" + cols.toString() + ") ";
-        queryString += "VALUES (?, ?)"
+    insertOne: function(table, col, val, cb) {
+        let queryString = "INSERT INTO " + table + " (" + col.toString() + ") ";
+        queryString += "VALUES (?)"
         console.log(queryString);
-        connection.query(queryString, function (err, result) {
+        connection.query(queryString, val, function (err, result) {
             if (err) {
                 throw err;
             }

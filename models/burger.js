@@ -5,9 +5,15 @@ const orm = require("../config/orm.js");
 // call the ORM functions using burger specific input for the ORM.
 const burger = {
     all: function(cb) {
-        orm.selectAll("burgers", function(res) {
-            cb(res);
+        orm.selectAll("burgers", function(results) {
+            cb(results);
         });
+    },
+    create: function(col, val, cb) {
+        console.log(val)
+        orm.insertOne("burgers", col, val, function(results) {
+            cb(results);
+        })
     }
     // ,
     // to do - create
