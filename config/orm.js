@@ -58,6 +58,17 @@ const orm = {
             }
             cb(result);
         });
+    },
+    // deleteOne()
+    deleteOne: function(table, condition, cb) {
+        let queryString = "DELETE FROM " + table + " WHERE " + condition;
+        console.log("Condition" + condition);
+        connection.query(queryString, function(err, result) {
+            if(err) {
+                throw err;
+            }
+            cb(result);
+        })
     }
 }
 

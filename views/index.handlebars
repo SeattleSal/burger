@@ -50,6 +50,9 @@
           {{#if devoured}}
             <li class="list-group-item">
                 {{this.id}}. {{this.burger_name}}
+                <button type="button" class="delete-burger btn btn-primary" data-id="{{this.id}}" data-devoured="{{this.devoured}}">
+                  Delete!
+                </button>
             </li>
           {{/if}}
         {{/each}}
@@ -98,4 +101,13 @@
       location.reload();
     });
   });
+
+  $(".delete-burger").on("click", function(event) {
+    let id = $(this).data("id");
+    $.ajax("/api/burgers/" + id, {
+      type: "DELETE"
+    }).then( function() {
+      location.reload();
+    })
+  })
 </script>

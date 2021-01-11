@@ -18,6 +18,11 @@ const burger = {
         orm.updateOne("burgers", val, condition, function(result) {
             cb(result);
         });
+    },
+    delete: function(condition, cb) {
+        orm.deleteOne("burgers", condition, function(result) {
+            cb(result);
+        });
     }
 };
 
