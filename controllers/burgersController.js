@@ -36,7 +36,7 @@ router.post("/api/burgers", function(req, res) {
 // to do - router.put("/api/burgers/:id")
 router.put("/api/burgers/:id", function(req, res) {
     let condition = "id = " + req.params.id;
-    console.log("conditions: " + condition);
+    // console.log("conditions: " + condition);
     // console.log(req.data)
     burger.update({
         devoured: true

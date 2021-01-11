@@ -1,0 +1,14 @@
+body {
+    background-color: #ffffed;
+}
+
+.jumbotron {
+    background-color: #2B6CF0;
+    color: white;
+}
+
+img {
+    width: 150px;
+    height: auto;
+    border-radius: 4px;
+}
