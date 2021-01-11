@@ -1,16 +1,12 @@
-// Inside your burger directory, create a folder named controllers.
-// In controllers, create the burgers_controller.js file.
-// Inside the burgers_controller.js file, import the following:
-// Express
-// burger.js
-// Create the router for the app, and export the router at the end of your file.
+// burger app - models/burgersController.js
+// The router for the app
 
 const express = require("express");
 const router = express.Router();
 // Import the model (burger.js) to use its database function
 const burger = require("../models/burger.js");
 
-// TO DO - Create all our routes and set up logic within those routes where required.
+// ROUTES
 router.get("/", function(req, res) {
     burger.all(function(data) {
         let hbsObject = {
@@ -21,7 +17,6 @@ router.get("/", function(req, res) {
     })
 });
 
-// to do - router.post("/api/burgers")
 router.post("/api/burgers", function(req, res) {
     console.log(req.body)
     burger.create(
@@ -33,11 +28,8 @@ router.post("/api/burgers", function(req, res) {
     );
 })
 
-// to do - router.put("/api/burgers/:id")
 router.put("/api/burgers/:id", function(req, res) {
     let condition = "id = " + req.params.id;
-    // console.log("conditions: " + condition);
-    // console.log(req.data)
     burger.update({
         devoured: true
     },
@@ -50,7 +42,6 @@ router.put("/api/burgers/:id", function(req, res) {
         }
     });
 });
-// to do - router.delete("/api/burgers/:id")
 
 // Export routes for server.js to use.
 module.exports = router;

@@ -41,7 +41,6 @@ const orm = {
     insertOne: function(table, col, val, cb) {
         let queryString = "INSERT INTO " + table + " (" + col.toString() + ") ";
         queryString += "VALUES (?)"
-        console.log(queryString);
         connection.query(queryString, val, function (err, result) {
             if (err) {
                 throw err;
@@ -49,12 +48,10 @@ const orm = {
             cb(result);
         })
     },
-    // updateOne: function (...)
+    // updateOne()
     updateOne: function(table, val, condition, cb) {
         let value = objToSql(val);
-        console.log(val, value);
         let queryString = "UPDATE " + table + " SET " + value + " WHERE " + condition;
-        console.log(queryString);
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
@@ -62,7 +59,6 @@ const orm = {
             cb(result);
         });
     }
-
 }
 
 // export the orm object for the model (burger.js)
