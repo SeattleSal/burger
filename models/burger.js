@@ -10,13 +10,11 @@ const burger = {
         });
     },
     create: function(col, val, cb) {
-        console.log(val)
         orm.insertOne("burgers", col, val, function(results) {
             cb(results);
         })
     },
     update: function(val, condition, cb) {
-        console.log(val);
         orm.updateOne("burgers", val, condition, function(result) {
             cb(result);
         });

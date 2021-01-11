@@ -1,29 +1,42 @@
-		<div class="jumbotron d-flex flex-column">
+		<div class="jumbotron d-flex flex-column p-1">
       <div class="row justify-content-center">
   			<h1 class="p-2 justify-content-center">Burgers!</h1><br>
       </div>
       <div class="row justify-content-center">
-        <img src="/assets/img/burger.jpg" class="p-2"><br>
+        <img src="/assets/img/burger.jpg" class="p-2 img-fluid"><br>
       </div>
       <div class="row justify-content-center">
         <p class="p-2">Eat da burgers!</p>
       </div>
 		</div>
 
+<div class="container">
+<div class="container mt-1 pt-1">
+  <div class="row justify-content-center">
+  <form class="create-form">
+  <h2>Add a Burger</h2>
+    <div class="form-group">
+      {{!-- <label for="burger">Burger Name:</label> --}}
+      <input type="text" id="burger" name="name">
+    <button type="submit" class="btn btn-primary">Add!</button>
+
+    </div>
+    <p>Enter a burger you want to eat and click "Add!" button.</p>
+  </form>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
     <div class="col">
-      Burgers Available:
+      Burgers Not Eaten:
       <ul class="list-group">
         {{#each burgers}}
           {{#unless devoured}}
             <li class="list-group-item">
-                {{this.id}}
-                Burger Name: {{this.burger_name}}
-                Eaten? {{this.devoured}}
-                <button class="change-devoured" data-id="{{this.id}}" data-devoured="{{this.devoured}}">
-                  Devour this burger!
+                {{this.id}}. {{this.burger_name}}
+                <button type="button" class="change-devoured btn btn-primary" data-id="{{this.id}}" data-devoured="{{this.devoured}}">
+                  Devour!
                 </button>
             </li>
           {{/unless}}
@@ -36,9 +49,7 @@
         {{#each burgers}}
           {{#if devoured}}
             <li class="list-group-item">
-                {{this.id}}
-                Burger Name: {{this.burger_name}}
-                Eaten? {{this.devoured}}
+                {{this.id}}. {{this.burger_name}}
             </li>
           {{/if}}
         {{/each}}
@@ -47,18 +58,8 @@
   </div>
 </div>
 
-<div class="container">
-  <h2>Add a Burger</h2>
-  <form class="create-form">
-    <div class="form-group">
-      <label for="burger">Burger Name:</label>
-      <input type="text" id="burger" name="name">
-    </div>
-
-    <button type="submit">Add burger</button>
-    <p>Enter a burger you want to eat and click "Add Burger" button.</p>
-  </form>
 </div>
+
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>

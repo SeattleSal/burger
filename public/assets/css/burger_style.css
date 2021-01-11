@@ -8,7 +8,11 @@ body {
 }
 
 img {
-    width: 150px;
+    width: 300px;
     height: auto;
     border-radius: 4px;
+}
+
+.change-devoured {
+    float: right;
 }

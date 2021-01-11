@@ -12,13 +12,12 @@ router.get("/", function(req, res) {
         let hbsObject = {
             burgers: data
         };
-        console.log(hbsObject);
+        // console.log(hbsObject);
         res.render("index", hbsObject);
     })
 });
 
 router.post("/api/burgers", function(req, res) {
-    console.log(req.body)
     burger.create(
         "burger_name", 
         req.body.name,
