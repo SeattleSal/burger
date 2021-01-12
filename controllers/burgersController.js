@@ -1,4 +1,4 @@
-// burger app - models/burgersController.js
+// burger app - /controllers/burgersController.js
 // The router for the app
 
 const express = require("express");

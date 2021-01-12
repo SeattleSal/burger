@@ -1,8 +1,8 @@
-// burger app - connection.js
+// burger app - /config/connection.js
 
 const mysql = require("mysql");
-require("dotenv").config(); // used to hide password
 let connection;
+require("dotenv").config(); // used to hide password
 
 // heroku setup
 if (process.env.JAWSDB_URL) {

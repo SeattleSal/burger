@@ -1,4 +1,4 @@
-// burger app - model/burger.js
+// burger app - /models/burger.js
 // import orm to create functions that will interact with the database
 const orm = require("../config/orm.js");
 
