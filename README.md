@@ -27,8 +27,10 @@ node server.js
 The application displays a home page with a form at the bottom to enter a new hamburger. Hamburgers are listed on the left with a 'Devour It!' button, once the button is clicked the hamburger is marked as devoured and will display on the right. Devoured hamburgers can be deleted by pressing the 'Delete' button. If a user enters a new burger that is blank, a modal message will appear.
 
 See Screenshots:<br>
+Home Page: <br>
 ![Home Page](./assets/img/screenshot1.JPG)
-![Error Modal](./assets/img/screenshot1.JPG)
+Modal: <br>
+![Error Modal](./assets/img/screenshot2.JPG)
 
 ## Links
 * Github Link: https://github.com/SeattleSal/burger
