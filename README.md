@@ -9,7 +9,7 @@
 * [License](#license)
 
 ## Description
-Burger is an application that is a burger logger using MySQL, Node, Express, Handlebars and a custom made ORM. It utilizes MVC design pattern.
+Burger is an application that is a burger logger using MySQL, Node, Express, Handlebars and a custom made ORM. It utilizes MVC design pattern. Bootstrap was used as a CSS framework.
 
 ## Dependencies
 The dependencies are [express](http://expressjs.com/) for the web framework, [express-handlebars](https://www.npmjs.com/package/express-handlebars) for the views and [mysql](https://www.npmjs.com/package/mysql) for the database. There is a `package.json` included, the following commands should be run to install dependencies:
@@ -24,14 +24,15 @@ Use the links below to use the application live. If you prefer to run the applic
 node server.js
 ```
 
-The application displays a home page with a form at the bottom to enter a new hamburger. Hamburgers are listed on the left with a Devour button, once the button is clicked the hamburger is marked as devoured and will display on the right.
+The application displays a home page with a form at the bottom to enter a new hamburger. Hamburgers are listed on the left with a 'Devour It!' button, once the button is clicked the hamburger is marked as devoured and will display on the right. Devoured hamburgers can be deleted by pressing the 'Delete' button. If a user enters a new burger that is blank, a modal message will appear.
 
-See Screenshots:
-![Home Page](./assets/img/homepage.JPG)
+See Screenshots:<br>
+![Home Page](./assets/img/screenshot1.jpg)
+![Error Modal](./assets/img/screenshot2.jpg)
 
 ## Links
 * Github Link: https://github.com/SeattleSal/burger
-* Heroku: https://guarded-river-31044.herokuapp.com/
+* Heroku: https://seattlesal-burgers.herokuapp.com/ 
 
 ## License
 
