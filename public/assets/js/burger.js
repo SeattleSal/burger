@@ -5,25 +5,25 @@ $(function() {
         event.preventDefault();
     
         if ($("#burger").val() === "") {
-            alert("empty burger!");
-            return;
+            // if value for new burger is empty
+            $("#inputModal").modal('show');
+        } else {
+            var newBurger = {
+            name: $("#burger").val().trim(),
+            };
+        
+            // Send the POST request.
+            $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+            }).then(
+            function() {
+                console.log("created new burger");
+                // Reload the page to get the updated list
+                location.reload();
+            }
+            );
         }
-
-        var newBurger = {
-          name: $("#burger").val().trim(),
-        };
-    
-        // Send the POST request.
-        $.ajax("/api/burgers", {
-          type: "POST",
-          data: newBurger
-        }).then(
-          function() {
-            console.log("created new burger");
-            // Reload the page to get the updated list
-            location.reload();
-          }
-        );
       });
     
       $(".change-devoured").on("click", function(event) {
